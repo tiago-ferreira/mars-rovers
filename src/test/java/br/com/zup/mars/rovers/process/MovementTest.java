@@ -44,6 +44,29 @@ public class MovementTest {
 		assertTrue(rover.posY() == 3);
 	}
 	
+	@Test
+	public void testProcess(){
+		rover.direction(Direction.WEST);
+		Method method;
+		try {
+			method = Movement.class.getDeclaredMethod("process", Rover.class, Character.class);
+			method.setAccessible(true);
+			rover =  (Rover) method.invoke(movement,rover,new Character('L'));
+		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+			e.printStackTrace();
+		} 
+		assertTrue(rover.direction() == Direction.SOUTH);
+	}
+	
+	@Test
+	public void testExecuteMovement() {
+		rover = new Rover(1, 2, Direction.NORTH);
+		movement.executeMovement(rover, "LMLMLMLMM");
+		assertTrue(rover.posX() == 1);
+		assertTrue(rover.posY() == 3);
+		assertTrue(rover.direction() == Direction.NORTH);
+	}
+	
 	private Rover executeMethod(String methodName){
 		Method method;
 		try {

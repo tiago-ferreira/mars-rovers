@@ -1,6 +1,6 @@
 # mars-rovers
 
-### Run Aplication
+### Run Application
 
 ###### gradle run
 

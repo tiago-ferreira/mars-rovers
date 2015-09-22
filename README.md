@@ -2,8 +2,8 @@
 
 ### Run Aplication
 
-###### 1. gradle run
+###### gradle run
 
 ### Run Tests
 
-###### 1. gradle test
+###### gradle test
